@@ -10,6 +10,11 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Link href={'/signup'}>Signup</Link>
+      <br>
+      </br>
+      <Link href={'/login'}>Login</Link>
+      
+
     </div>
   );
 }

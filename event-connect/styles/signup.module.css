@@ -1,0 +1,134 @@
+
+
+/* signup.module.css */
+
+.container {
+  
+ 
+  background-image: url("C:\Users\aasth\OneDrive\Desktop\Minor2PRoject\EventsConnect\event-connect\download.jpeg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.formContainer {
+  background-color: rgba(255, 255, 255, 0.8); 
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 300px; 
+  width: 90%; 
+  margin: 0 auto; 
+}
+
+.inputGroup {
+  margin: 10px 0;
+}
+
+.inputGroup input {
+ 
+  width: calc(100% - 20px); 
+  padding: 10px;
+  margin: 5px; 
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+
+}
+
+.inputGroup select {
+
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 5px; 
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.submitButton {
+  
+  width: 50%;
+  
+  padding: 8px;
+  font-size: 14px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-items: center;
+}
+.submitButton:hover{
+  background-color:darkblue;
+}
+.loginButton{
+  width: 50%;
+  padding: 8px;
+  font-size: 14px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-items: center;
+
+}
+.loginButton:hover{
+  background-color:darkblue;
+}
+.googleButton {
+  width: 60%;
+  padding: 10px;
+  
+  background-color:#007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center; 
+}
+
+.googleButton:hover {
+  background-color:blue;
+}
+
+.googleIcon {
+  
+  margin-right: 8px; 
+  font-size: 20px; 
+}
+
+.orText {
+  
+  
+  margin: 10px 50px;
+}
+.error {
+
+  color: red;
+  margin-top: 5px;
+}
+
+
+.success {
+  color: green;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .formContainer {
+    padding: 10px;
+  }
+
+  .inputGroup input,
+  .inputGroup select {
+    font-size: 12px;
+  }
+}
