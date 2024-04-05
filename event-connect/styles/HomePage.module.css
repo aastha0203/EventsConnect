@@ -1,0 +1,109 @@
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    
+  }
+  .logo h1 {
+    margin: 0;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 26px;
+    color:rgb(225, 18, 111);
+  }
+  
+  
+  .navBar ul {
+    list-style-type:armenian;
+    margin: 20px 20px 20px 20px;
+    padding: 10px;
+  }
+  
+  .navBar li {
+    display: inline;
+    margin-left: 30px;
+  }
+  
+  .navBar li:first-child {
+    margin-left: 30px;
+  }
+  
+  .searchBar {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .searchInput {
+    width: 100%;
+    padding: 10px 300px 10px 35px; /* Adjust padding for the icons */
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  .icon {
+    position: absolute;
+    top: 50%;
+    
+    
+    transform: translateY(-50%);
+    cursor: pointer;
+    
+  }
+  
+  .searchIcon {
+    left: 5px;
+    stroke-width: 0%;
+    }
+  
+  
+  .clearIcon {
+    right: 10px;
+    stroke-width: 0%;
+    
+  }
+  .image img {
+    width: 100%;
+    max-height: 400px;
+    height: auto;
+    
+  }
+  @media screen and (max-width: 708px) {
+    .header {
+      flex-direction: column; 
+    }
+  
+    .logo h1 {
+      font-size: 20px; 
+    }
+  
+    .searchBar {
+      margin: 20px 0; 
+      max-width: none; 
+    }
+  
+    .navBar ul {
+      flex-direction: column; 
+    }
+  
+    .navBar li {
+      margin-left: 0; 
+    }
+   
+  
+    .icon {
+      flex: 0 0 25%; /* Set icon width to 25% for smaller screens */
+    }
+  }
+  
