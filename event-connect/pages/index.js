@@ -56,12 +56,12 @@ const HomePage = () => {
         <div className={styles.navBar}>
           <ul>
             <li>
-              <Link href="/browse-events">Browse Events</Link>
+              <Link href="/browseevents">Browse Events</Link>
               
              
             </li>
             <li>
-              <Link href="/create-event">Create Event</Link>
+              <Link href="/createevent">CreateEvent</Link>
             </li>
             <li>
               <Link href="/login">Login</Link>
