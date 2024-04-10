@@ -56,7 +56,7 @@ const HomePage = () => {
         <div className={styles.navBar}>
           <ul>
             <li>
-              <Link href="/browseevents">Browse Events</Link>
+              <Link href="/BrowseEvents">Browse Events</Link>
               
              
             </li>

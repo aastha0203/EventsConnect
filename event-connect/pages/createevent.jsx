@@ -25,21 +25,22 @@ const createevent = () => {
       ...prevData,
       [name]: value,
     }));
-  };
+  };0
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
     try {
       const response = await fetch('/api/createeventAPI', {
         method: 'POST',
-        body: JSON.stringify(formData),
         headers: {
           'Content-Type': 'application/json',
         },
+        body: JSON.stringify(formData),
       });
+
       if (response.ok) {
         console.log('Event created successfully');
+        // Reset form fields or redirect to another page
       } else {
         console.error('Failed to create event');
       }
