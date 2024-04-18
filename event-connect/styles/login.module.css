@@ -1,0 +1,119 @@
+/* Container styles */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f3f4f6; /* Background color */
+  }
+  
+  /* Slider styles */
+  .slider {
+    width: 50%;
+    padding: 20px;
+  }
+  
+  .slide {
+    background-color: #ffffff; /* Slide background color */
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    padding: 40px;
+  }
+  
+  .slide h2 {
+    font-size: 24px;
+    color: #333333; /* Text color */
+  }
+  
+  .slide p {
+    font-size: 16px;
+    color: #666666; /* Text color */
+  }
+  
+  /* Login form styles */
+  .loginForm {
+    width: 50%;
+    padding: 40px;
+    background-color: #ffffff; /* Background color */
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  }
+  
+  .loginForm h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333333; /* Text color */
+  }
+  
+  .inputGroup {
+    margin-bottom: 20px;
+  }
+  
+  .inputGroup input {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #ced4da; /* Border color */
+    border-radius: 10px;
+    font-size: 16px;
+    color: #495057; /* Text color */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+  }
+  
+  .inputGroup input:focus {
+    outline: none;
+    border-color: #007bff; /* Highlight border color on focus */
+  }
+  
+  /* Button styles */
+  .loginButton, .googleButton {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .loginButton {
+    background-color: #007bff; /* Button background color */
+    color: #ffffff; /* Button text color */
+  }
+  
+  .loginButton:hover {
+    background-color: #0056b3; /* Button hover background color */
+  }
+  
+  .googleButton {
+    background-color: #db4437; /* Google button background color */
+    color: #ffffff; /* Google button text color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .googleIcon {
+    margin-right: 10px;
+  }
+  
+  /* Or text styles */
+  .orText {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #666666; /* Text color */
+  }
+  
+  /* Error message styles */
+  .error {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #dc3545; /* Error message color */
+    text-align: center; /* Center align error message */
+  }
+  
+  .signupLink {
+    color: #007bff; /* Link color */
+    cursor: pointer;
+    text-decoration: underline; /* Underline the link */
+  }
+  

@@ -1,44 +1,45 @@
-import  React, { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { auth } from "./Firebase";
-import styles from '../styles/signup.module.css';
+import { auth } from './Firebase';
+import styles from '../styles/login.module.css';
+import { FaGoogle } from 'react-icons/fa';
+import Link from 'next/link'; // Import Link from Next.js
 
-import { FaGoogle } from 'react-icons/fa'
-
-
-const login=()=> {
-
-    const emailRef = useRef();
+const Login = () => {
+  const emailRef = useRef();
   const passwordRef = useRef();
   const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    
+
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      setSuccess("Login successful!");
-      
     } catch (error) {
       setError("Invalid email or password. Please try again.");
     }
   };
+
   const handleGoogleLogin = async () => {
     try {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
-      setSuccess("Login successful!");
-      
     } catch (error) {
       setError("An error occurred during Google login. Please try again.");
     }
   };
+
   return (
     <div className={styles.container}>
-      <div className={styles.formContainer}>
+      <div className={styles.slider}>
+        <div className={styles.slide}>
+          <h2>Welcome Back!</h2>
+          <p>We're excited to have you back. Login to access your account.</p>
+        </div>
+      </div>
+      <div className={styles.loginForm}>
         <h1>Login to Your Account</h1>
         <form onSubmit={handleLogin}>
           <div className={styles.inputGroup}>
@@ -54,11 +55,11 @@ const login=()=> {
           <FaGoogle className={styles.googleIcon} /> Login with Google
         </button>
         {error && <p className={styles.error}>{error}</p>}
-        {success && <p className={styles.success}>{success}</p>}
+        {/* Updated signup message */}
+        <p className={styles.signupMessage}>Don't have an account? </p><p><Link href="/signup"><span className={styles.signupLink}>Signup</span></Link></p>
       </div>
     </div>
   );
-
 };
-export default login;
-  
+
+export default Login;

@@ -1,134 +1,153 @@
-
-
-/* signup.module.css */
-
+/* Container styles */
 .container {
-  
- 
-  background-image: url("C:\Users\aasth\OneDrive\Desktop\Minor2PRoject\EventsConnect\event-connect\download.jpeg");
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  height: 100vh;
+  background-color: #f3f4f6; /* Background color */
 }
 
-.formContainer {
-  background-color: rgba(255, 255, 255, 0.8); 
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  max-width: 300px; 
-  width: 90%; 
-  margin: 0 auto; 
+/* Signup form container styles */
+.signupForm {
+  width: 50%;
+  padding: 40px;
+  border-radius: 20px;
+  background-color: #ffffff; /* Background color */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
 }
 
+.signupForm h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333333; /* Text color */
+}
+
+/* Greeting message container styles */
+.greetingMessage {
+  width: 50%;
+  padding: 40px;
+  border-radius: 20px;
+  background-color: #ffffff; /* Background color */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.greetingMessage h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333333; /* Text color */
+}
+
+/* Input group styles */
 .inputGroup {
-  margin: 10px 0;
+  margin-bottom: 20px;
 }
 
-.inputGroup input {
- 
-  width: calc(100% - 20px); 
-  padding: 10px;
-  margin: 5px; 
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-
+.inputGroup input, .inputGroup select {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #ced4da; /* Border color */
+  border-radius: 10px;
+  font-size: 16px;
+  color: #495057; /* Text color */
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
 }
 
-.inputGroup select {
-
-  width: calc(100% - 20px);
-  padding: 10px;
-  margin: 5px; 
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
+.inputGroup input:focus, .inputGroup select:focus {
+  outline: none;
+  border-color: #007bff; /* Highlight border color on focus */
 }
 
-.submitButton {
-  
-  width: 50%;
-  
-  padding: 8px;
-  font-size: 14px;
-  background-color: #007bff;
-  color: #fff;
+/* Button styles */
+.signupButton, .googleButton {
+  width: 100%;
+  padding: 14px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
+  font-size: 16px;
   cursor: pointer;
-  align-items: center;
+  transition: background-color 0.3s ease;
 }
-.submitButton:hover{
-  background-color:darkblue;
-}
-.loginButton{
-  width: 50%;
-  padding: 8px;
-  font-size: 14px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  align-items: center;
 
+.signupButton {
+  background-color: #007bff; /* Button background color */
+  color: #ffffff; /* Button text color */
 }
-.loginButton:hover{
-  background-color:darkblue;
+
+.signupButton:hover {
+  background-color: #0056b3; /* Button hover background color */
 }
+
 .googleButton {
-  width: 60%;
-  padding: 10px;
-  
-  background-color:#007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  background-color: #db4437; /* Google button background color */
+  color: #ffffff; /* Google button text color */
   display: flex;
-  align-items: center; 
-}
-
-.googleButton:hover {
-  background-color:blue;
+  align-items: center;
+  justify-content: center;
 }
 
 .googleIcon {
-  
-  margin-right: 8px; 
-  font-size: 20px; 
+  margin-right: 10px;
 }
 
+/* Or text styles */
 .orText {
-  
-  
-  margin: 10px 50px;
-}
-.error {
-
-  color: red;
-  margin-top: 5px;
-}
-
-
-.success {
-  color: green;
   text-align: center;
+  margin-bottom: 20px;
+  color: #666666; /* Text color */
 }
 
-@media (max-width: 600px) {
-  .formContainer {
-    padding: 10px;
-  }
-
-  .inputGroup input,
-  .inputGroup select {
-    font-size: 12px;
-  }
+/* Signup message styles */
+.signupMessage {
+  text-align: center;
+  margin-top: 20px;
+  color: #666666; /* Text color */
 }
+
+.signupLink {
+  color: #007bff; /* Link color */
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth transition for link color */
+}
+
+.signupLink:hover {
+  color: #0056b3; /* Hovered link color */
+}
+
+/* Error message styles */
+.error {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #dc3545; /* Error message color */
+  text-align: center; /* Center align error message */
+}
+/* Password policy styles */
+.passwordPolicy {
+  margin-top: 20px;
+  border: 2px solid #007bff; /* Border color */
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #f3f4f6; /* Background color */
+}
+
+.passwordPolicy h3 {
+  font-size: 20px;
+  color: #007bff; /* Title color */
+  margin-bottom: 10px;
+}
+
+.passwordPolicy ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.passwordPolicy li {
+  margin-bottom: 8px;
+  color: #333; /* Text color */
+}
+
+.passwordPolicy li:before {
+  content: "•"; /* Bullet character */
+  color: #007bff; /* Bullet color */
+  margin-right: 8px;
+}
+

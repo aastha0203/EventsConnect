@@ -56,9 +56,14 @@ const EventsPage = () => {
         >
           <option value="">All Categories</option>
           <option value="Music">Music</option>
-          <option value="Food">Food</option>
+          <option value="Food">DIY Workshops</option>
           <option value="Dance">Dance</option>
           <option value="Sports">Sports</option>
+          <option value="">Culinary</option>
+          <option value="Music">Poetry</option>
+          <option value="Food">Ted Talks</option>
+          <option value="Dance">Webinar</option>
+          <option value="Sports">Magic Shows</option>
         </select>
       </div>
       <div className={styles["events-container"]}>
