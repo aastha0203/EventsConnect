@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import EventCard from './EventCard';
+import styles from '../styles/BrowseEvents.module.css'; // Import the CSS file
 
 const EventsPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -40,16 +41,18 @@ const EventsPage = () => {
 
   return (
     <div>
-      <div className="search-bar">
+      <div className={styles["search-bar"]}>
         <input
           type="text"
           placeholder="Search events..."
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}
+          className={styles["search-input"]} // Add custom class for input
         />
         <select
           value={selectedCategory}
           onChange={e => setSelectedCategory(e.target.value)}
+          className={styles["category-select"]} // Add custom class for select
         >
           <option value="">All Categories</option>
           <option value="Music">Music</option>
@@ -58,7 +61,7 @@ const EventsPage = () => {
           <option value="Sports">Sports</option>
         </select>
       </div>
-      <div className="events-container">
+      <div className={styles["events-container"]}>
         {filteredEvents.map(event => (
           <EventCard key={event.id} event={event} />
         ))}

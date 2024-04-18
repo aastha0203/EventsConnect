@@ -1,53 +1,74 @@
 .event-card {
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #ade0e1;
-    padding: 20px;
-    margin-bottom: 20px;
-    transition: transform 0.2s;
-  }
-  
-  .event-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .event-card h2 {
-    font-size: 1.5rem;
-    margin-top: 0;
-    color: #333333;
-  }
-  
-  .event-card p {
-    margin: 10px 0;
-    color: #666666;
-  }
-  
-  .event-card .details {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .event-card .details div {
-    flex: 1;
-    text-align: center;
-  }
-  
-  .event-card .details div:first-child {
-    text-align: left;
-  }
-  
-  .event-card .details div:last-child {
-    text-align: right;
-  }
-  
-  .event-card .details p {
-    margin: 0;
-  }
-  
-
-.search-bar {
-  margin-bottom: 20px; 
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  width: 300px; /* Adjust the width as needed */
+  margin-bottom: 20px; /* Add margin at the bottom */
 }
-.search-bar-container {
-  margin-bottom: 20px; /* Adjust the margin as needed */
+
+.event-card:hover {
+  transform: scale(1.04);
+}
+
+.event-card .tag {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: white;
+  color: #000;
+  font-family: "Alegreya";
+  font-size: 13px;
+  font-weight: 700;
+  line-height: normal;
+  padding: 4px 12px;
+  border-radius: 10px;
+}
+
+.event-card .event-details {
+  padding: 20px;
+}
+
+.event-card .event-title {
+  color: #000;
+  font-family: Alegreya;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 10px;
+}
+
+.event-card .event-description {
+  color: #666666;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Media Queries */
+@media (max-width: 1040px) {
+  .event-card {
+    width: calc(50% - 20px);
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
+  .event-card:nth-child(2n) {
+    margin-right: 0;
+  }
+
+  .event-card:nth-child(3) {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .event-card {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 }

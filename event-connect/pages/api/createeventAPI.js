@@ -1,15 +1,25 @@
 import { sql } from '@vercel/postgres';
- 
+
 export default async function handler(request, response) {
-  try {
-    const petName = request.query.petName;
-    const ownerName = request.query.ownerName;
-    if (!petName || !ownerName) throw new Error('Pet and owner names required');
-    await sql`INSERT INTO Pets (Name, Owner) VALUES (${petName}, ${ownerName});`;
-  } catch (error) {
-    return response.status(500).json({ error });
+  if (request.method !== 'POST') {
+    return response.status(405).end(); // Method Not Allowed
   }
- 
-  const pets = await sql`SELECT * FROM Pets;`;
-  return response.status(200).json({ pets });
+
+  try {
+    const eventData = request.body;
+
+    // Extract event data from the request body
+    const { name, seatsAvailable, category, date, initials, time, city, street, venueName } = eventData;
+
+    // Insert event data into the database
+    await sql`
+      INSERT INTO events (name, seats_available, category, event_date, initials, event_time, city, street, venue_name)
+      VALUES (${name}, ${seatsAvailable}, ${category}, ${date}, ${initials}, ${time}, ${city}, ${street}, ${venueName})
+    `;
+
+    return response.status(201).json({ message: 'Event created successfully' });
+  } catch (error) {
+    console.error('Error creating event:', error);
+    return response.status(500).json({ error: 'Failed to create event' });
+  }
 }
