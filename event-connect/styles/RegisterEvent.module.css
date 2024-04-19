@@ -1,0 +1,65 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f8ff; /* Bright background color */
+}
+
+.card {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.card h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif; /* Changed font */
+    font-size: 24px; /* Increased font size */
+}
+
+.formGroup {
+    margin-bottom: 20px;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 10px;
+    font-family: Arial, sans-serif; /* Changed font */
+    font-size: 16px; /* Increased font size */
+}
+
+.formGroup input[type='text'],
+.formGroup input[type='email'],
+.formGroup select {
+    width: calc(100% - 20px); /* Decreased width to add margin */
+    padding: 12px; /* Adjusted padding */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px; /* Decreased font size */
+    outline: none;
+}
+
+.formGroup input[type='text']:focus,
+.formGroup input[type='email']:focus,
+.formGroup select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+
+.button {
+    background-color: #d1ecf1; /* Very light shade of green */
+    color: #007bff;
+    border: none;
+    border-radius: 50px; /* Rounded button */
+    padding:14 px 80px;
+    margin-left: 50%;
+
+    
+}

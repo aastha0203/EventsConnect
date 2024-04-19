@@ -2,6 +2,17 @@ import { useState } from 'react';
 import { FaSearch, FaTimes } from 'react-icons/fa'; 
 import Link from 'next/link';
 import styles from '@/styles/HomePage.module.css';
+const categories = [
+  { name: 'Music', icon: '/icons/microphone-icon.svg' },
+  { name: 'DIY Workshops', icon: '/icons/brush-pencil-icon.svg' },
+  { name: 'Dance', icon: '/icons/dance-icon.svg' },
+  { name: 'Sports', icon: '/icons/table-tennis-icon.svg' },
+  { name: 'Culinary', icon: '/icons/dish-spoon-knife-icon.svg' },
+  { name: 'Poetry', icon: '/icons/author-writer-icon.svg' },
+  { name: 'TED Talks', icon: '/icons/speak-speech-man-icon.svg' },
+  { name: 'Webinar', icon: '/icons/conference-video-call-icon.svg' },
+  { name: 'Magic Show', icon: '/icons/witch-cap-icon.svg' },
+];
 
 const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -51,6 +62,14 @@ const HomePage = () => {
       <div className={styles.image}>
         <img src="img1.jpg" alt="Event" />
       </div>
+      <div className={styles.categories}>
+        {categories.map((category, index) => (
+          <div className={styles.category} key={index}>
+            <img src={category.icon} alt={category.name} />
+            <p>{category.name}</p>
+          </div>
+        ))}
+         </div>
     </div>
   );
 };
