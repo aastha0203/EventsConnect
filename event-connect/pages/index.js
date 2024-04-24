@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { FaSearch, FaTimes } from 'react-icons/fa'; 
 import Link from 'next/link';
-import styles from '@/styles/HomePage.module.css';
+import styles from '../styles/HomePage.module.css';
 const categories = [
   { name: 'Music', icon: '/icons/microphone-icon.svg' },
   { name: 'DIY Workshops', icon: '/icons/brush-pencil-icon.svg' },

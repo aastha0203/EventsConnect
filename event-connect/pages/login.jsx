@@ -3,7 +3,7 @@ import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 
 import { auth } from './Firebase';
 import styles from '../styles/login.module.css';
 import { FaGoogle } from 'react-icons/fa';
-import Link from 'next/link'; // Import Link from Next.js
+import Link from 'next/link'; 
 
 const Login = () => {
   const emailRef = useRef();

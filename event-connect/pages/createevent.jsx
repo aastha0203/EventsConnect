@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import styles from '../styles/CreateEvent.module.css';
 
 const CreateEvent = () => {
@@ -25,7 +25,7 @@ const CreateEvent = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('/api/createeventAPI', {
+      const response = await fetch('/api/eventcreate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -36,6 +36,17 @@ const CreateEvent = () => {
       if (response.ok) {
         console.log('Event created successfully');
         // Reset form fields or redirect to another page
+        setFormData({
+          name: '',
+          seatsAvailable: '',
+          category: '',
+          date: '',
+          initials: '',
+          time: '',
+          city: '',
+          street: '',
+          venueName: '',
+        });
       } else {
         console.error('Failed to create event');
       }

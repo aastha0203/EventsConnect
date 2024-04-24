@@ -4,7 +4,8 @@ import { auth } from './Firebase';
 import styles from '../styles/signup.module.css';
 import { FaGoogle } from 'react-icons/fa';
 import Link from 'next/link';
-
+//import {collection, addDoc } from "firebase/firestore";
+//import { getFirestore, doc, setDoc } from "firebase/firestore";
 const Signup = () => {
   const firstNameRef = useRef();
   const lastNameRef = useRef();
@@ -29,10 +30,23 @@ const Signup = () => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       // Signup successful, perform additional actions if needed
+
+      /*await addUserToFirestore(userCredential.user.uid, {
+        firstName,
+        lastName,
+        email,
+        phone,
+        role,
+      });*/
     } catch (error) {
       setError(error.message);
     }
   };
+  /*const addUserToFirestore = async (userId, userData) => {
+    const db = getFirestore();
+    const userDocRef = doc(db, "Users", userId);
+    await setDoc(userDocRef, userData);
+  };*/
 
   const handleGoogleSignup = async () => {
     try {
