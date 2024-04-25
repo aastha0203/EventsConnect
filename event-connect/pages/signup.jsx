@@ -1,65 +1,63 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth } from './Firebase';
 import styles from '../styles/signup.module.css';
 import { FaGoogle } from 'react-icons/fa';
 import Link from 'next/link';
-//import {collection, addDoc } from "firebase/firestore";
-//import { getFirestore, doc, setDoc } from "firebase/firestore";
+
 const Signup = () => {
-  const firstNameRef = useRef();
-  const lastNameRef = useRef();
-  const emailRef = useRef();
-  const phoneRef = useRef();
-  const passwordRef = useRef();
-  const roleRef = useRef();
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
+  const [role, setRole] = useState('');
   const [error, setError] = useState(null);
 
   const handleSignup = async (e) => {
     e.preventDefault();
 
-    const firstName = firstNameRef.current.value;
-    const lastName = lastNameRef.current.value;
-    const email = emailRef.current.value;
-    const phone = phoneRef.current.value;
-    const password = passwordRef.current.value;
-    const role = roleRef.current.value;
-
-    // Perform form validation here...
-
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      // Signup successful, perform additional actions if needed
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const userId = userCredential.user.uid;
 
-      /*await addUserToFirestore(userCredential.user.uid, {
-        firstName,
-        lastName,
-        email,
-        phone,
-        role,
-      });*/
+      const userData = { firstName, lastName, email, phone, role };
+      await storeUserDataInDatabase(userId, userData);
     } catch (error) {
+      console.error(error);
       setError(error.message);
     }
   };
-  /*const addUserToFirestore = async (userId, userData) => {
-    const db = getFirestore();
-    const userDocRef = doc(db, "Users", userId);
-    await setDoc(userDocRef, userData);
-  };*/
+
+  const storeUserDataInDatabase =  (userId, userData) => {
+    try {
+      const endpoint = userData.role === 'organizer' ? '/api/organizer-signup' : '/api/participant-signup';
+      
+      const response =  fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ userId, ...userData }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to store user data');
+      }
+    } catch (error) {
+      console.error(error);
+      setError('Failed to store user data');
+    }
+  };
 
   const handleGoogleSignup = async () => {
     try {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
-      // Signup successful with Google, perform additional actions if needed
     } catch (error) {
+      console.error(error);
       setError(error.message);
     }
-  };
-
-  const handleLoginRedirect = () => {
-    window.location.href = "/login";
   };
 
   return (
@@ -67,24 +65,24 @@ const Signup = () => {
       <div className={styles.signupForm}>
         <h1>Create an Account</h1>
         <form onSubmit={handleSignup}>
-          {/* Signup form inputs */}
           <div className={styles.inputGroup}>
-            <input type="text" placeholder="First Name" ref={firstNameRef} required />
+            <input type="text" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
           </div>
           <div className={styles.inputGroup}>
-            <input type="text" placeholder="Last Name" ref={lastNameRef} required />
+            <input type="text" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
           </div>
           <div className={styles.inputGroup}>
-            <input type="email" placeholder="Email Address" ref={emailRef} required />
+            <input type="email" placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)} required />
           </div>
           <div className={styles.inputGroup}>
-            <input type="tel" placeholder="Phone Number" ref={phoneRef} required />
+            <input type="tel" placeholder="Phone Number" value={phone} onChange={(e) => setPhone(e.target.value)} required />
           </div>
           <div className={styles.inputGroup}>
-            <input type="password" placeholder="Password" ref={passwordRef} required />
+            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
           </div>
           <div className={styles.inputGroup}>
-            <select ref={roleRef}>
+            <select value={role} onChange={(e) => setRole(e.target.value)} required>
+              <option value="" disabled>Choose your role</option>
               <option value="organizer">Organizer</option>
               <option value="participant">Participant</option>
             </select>
@@ -96,7 +94,6 @@ const Signup = () => {
           <FaGoogle className={styles.googleIcon} /> Sign Up with Google
         </button>
         {error && <p className={styles.error}>{error}</p>}
-        {/* Signup message with link to Login page */}
         <p className={styles.signupMessage}>
           Don't have an account?{" "}
           <span className={styles.signupLink}><Link href="/login">Login</Link></span>
@@ -105,8 +102,7 @@ const Signup = () => {
       <div className={styles.greetingMessage}>
         <h1>Hello Friend!</h1>
         <h2>Fill out your personal details and start your journey with us.</h2>
-      
-      <div className={styles.passwordPolicy}>
+        <div className={styles.passwordPolicy}>
           <h3>Please keep our password policy in mind while registering</h3>
           <ul>
             <li>One uppercase letter [A-Z]</li>
@@ -116,7 +112,7 @@ const Signup = () => {
             <li>Should be at least 6 characters long</li>
           </ul>
         </div>
-        </div>
+      </div>
     </div>
   );
 };
